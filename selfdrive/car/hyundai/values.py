@@ -193,7 +193,7 @@ FINGERPRINTS = {
   }],
   CAR.GRANDEUR_IG_FL: [{
   }],
-  CAR.GRANDEUR_IG_FL_HEV: [
+  CAR.GRANDEUR_IG_FL_HEV: [{
   }],
   # kia
   CAR.FORTE: [{
