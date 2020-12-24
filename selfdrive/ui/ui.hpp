@@ -14,14 +14,15 @@
 #define UI_FEATURE_LEFT_REL_DIST 1
 #define UI_FEATURE_LEFT_REL_SPEED 1
 #define UI_FEATURE_LEFT_REAL_STEER 1
-#define UI_FEATURE_LEFT_DESIRED_STEER 1
+#define UI_FEATURE_LEFT_DESIRED_STEER 0
 
 #define UI_FEATURE_RIGHT_CPU_TEMP 1
+#define UI_FEATURE_RIGHT_CPU_LOAD 1
 #define UI_FEATURE_RIGHT_BATTERY_TEMP 1
 #define UI_FEATURE_RIGHT_BATTERY_LEVEL 1
-#define UI_FEATURE_RIGHT_GPS_ALTITUDE 1
-#define UI_FEATURE_RIGHT_GPS_ACCURACY 1
-#define UI_FEATURE_RIGHT_GPS_SATELLITE 1
+#define UI_FEATURE_RIGHT_GPS_ALTITUDE 0
+#define UI_FEATURE_RIGHT_GPS_ACCURACY 0
+#define UI_FEATURE_RIGHT_GPS_SATELLITE 0
 
 #include "messaging.hpp"
 
@@ -31,6 +32,7 @@
 #define nvgCreate nvgCreateGL3
 #else
 #include <GLES3/gl3.h>
+#include <EGL/egl.h>
 #define NANOVG_GLES3_IMPLEMENTATION
 #define nvgCreate nvgCreateGLES3
 #endif
@@ -154,7 +156,7 @@ typedef struct UIScene {
   cereal::CarState::Reader car_state;
   cereal::CarControl::Reader car_control;
   cereal::PathPlan::Reader path_plan;
-  //cereal::ModelData::LeadData::Reader model_lead_data[2];
+  cereal::ModelData::LeadData::Reader model_lead_data[2];
 
   float gpsAccuracy;
   float gpsAltitude;
