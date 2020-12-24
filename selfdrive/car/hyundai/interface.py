@@ -129,9 +129,9 @@ class CarInterface(CarInterfaceBase):
       ret.wheelbase = 2.7
       tire_stiffness_factor = 0.385
     elif candidate in [CAR.K7, CAR.K7_HEV]:
-      tire_stiffness_factor = 0.6
-      ret.mass = 1640. + STD_CARGO_KG
-      ret.wheelbase = 2.845
+      tire_stiffness_factor = 0.9
+      ret.mass = 1685. + STD_CARGO_KG
+      ret.wheelbase = 2.855
 
 
     ret.lateralTuning.init('lqr')
@@ -233,7 +233,7 @@ class CarInterface(CarInterfaceBase):
       ret.cruiseState.enabled = ret.cruiseState.available
 
     # turning indicator alert logic
-    if (ret.leftBlinker or ret.rightBlinker or self.CC.turning_signal_timer) and ret.vEgo < LANE_CHANGE_SPEED_MIN - 1.2:
+    if ret.leftBlinker or ret.rightBlinker or self.CC.turning_signal_timer:
       self.CC.turning_indicator_alert = True
     else:
       self.CC.turning_indicator_alert = False
